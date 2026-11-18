@@ -20,6 +20,56 @@ body {
   margin: 0 auto;
 }
 
+#farewell-screen[hidden] {
+  display: none;
+}
+
+.farewell-screen {
+  display: grid;
+  min-height: calc(100vh - 48px);
+  place-items: center;
+  padding: 24px;
+  text-align: center;
+}
+
+.farewell-card {
+  width: min(100%, 640px);
+  padding: clamp(28px, 6vw, 58px);
+  border: 1px solid rgb(255 255 255 / 84%);
+  border-radius: 32px 12px 32px 12px;
+  background: rgb(255 250 252 / 76%);
+  box-shadow: 0 18px 48px rgb(102 29 59 / 18%);
+  backdrop-filter: blur(10px);
+}
+
+.farewell-cake {
+  display: block;
+  margin-bottom: 12px;
+  font-size: clamp(2.5rem, 8vw, 4rem);
+}
+
+.farewell-eyebrow {
+  margin: 0 0 12px;
+  color: #793b58;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.farewell-card h2 {
+  margin: 0;
+  color: #7c183d;
+  font: 700 clamp(2rem, 7vw, 3.5rem)/1.08 Georgia, serif;
+  text-shadow: 0 3px 0 rgb(255 255 255 / 65%);
+}
+
+.farewell-message {
+  margin: 16px 0 26px;
+  color: #a92550;
+  font: italic 700 clamp(1.2rem, 4vw, 1.65rem)/1.4 Georgia, serif;
+}
+
 .back-link {
   display: inline-flex;
   min-height: 44px;
@@ -243,7 +293,8 @@ h1 span {
   padding: 26px 0 12px;
 }
 
-.close-button {
+.close-button,
+.replay-button {
   display: inline-flex;
   min-height: 48px;
   align-items: center;
@@ -258,16 +309,24 @@ h1 span {
   cursor: pointer;
   font: inherit;
   font-weight: 700;
+  text-decoration: none;
   transition: background 180ms ease, box-shadow 180ms ease, transform 180ms ease;
 }
 
-.close-button span {
+.replay-button {
+  background: linear-gradient(135deg, #a92550, #d34b78);
+}
+
+.close-button span,
+.replay-button span {
   font-size: 1.25rem;
   line-height: 1;
 }
 
 .close-button:hover,
-.close-button:focus-visible {
+.close-button:focus-visible,
+.replay-button:hover,
+.replay-button:focus-visible {
   transform: translateY(-2px);
   background: linear-gradient(135deg, #8f1d43, #bd3563);
   box-shadow: 0 11px 24px rgb(102 29 59 / 30%);
@@ -388,6 +447,7 @@ h1 span {
   .photo-card,
   .back-link,
   .close-button,
+  .replay-button,
   .photo-visual > img,
   .photo-visual::before,
   .photo-visual::after,
